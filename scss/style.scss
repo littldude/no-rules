@@ -871,7 +871,7 @@ button:focus {
         &__inner {
             .text {
                 &--bg {
-                    display: none;
+                    background-color: transparent;
                 }
             }
         }
