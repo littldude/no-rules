@@ -152,6 +152,16 @@ button:focus {
     font-size: 36px;
     line-height: 47px;
     color: $dark;
+    &--underline {
+        position: relative;
+        &::after {
+            content: url('../img/line.svg');
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            display: block;
+        }
+    }
     &--intro {
         margin-top: 20px;
     }
@@ -215,12 +225,15 @@ button:focus {
         width: 100%;
         height: 100%;
         border: 1px solid #252B31;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         border-radius: 90px;
         z-index: -1;
     }
     &:hover {
         background-color: $dark;
+        -webkit-transition: .2s linear;
+        -o-transition: .2s linear;
         transition: .2s linear;
     }
     &--buy {
@@ -229,6 +242,8 @@ button:focus {
         &:hover {
             background-color: $grey;
             color: $dark;
+            -webkit-transition: .2s linear;
+            -o-transition: .2s linear;
             transition: .2s linear;
         }
     }
@@ -241,7 +256,10 @@ button:focus {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;
                 justify-content: space-between;
@@ -263,9 +281,16 @@ button:focus {
     }
     &__block {
         margin: 73px 0 60px 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 }
 .program {
@@ -275,15 +300,24 @@ button:focus {
         margin-top: 85px;
         display: -webkit-box;
         display: -ms-flexbox;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         display: flex;
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
         &--item {
             position: relative;
             width: 380px;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             padding: 45px 60px;
             background-color: $grey;
             border-radius: 60px;
@@ -314,6 +348,8 @@ button:focus {
     &__inner {
         position: relative;
         margin-top: 130px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         padding: 82px 0 82px 70px;
         width: 100%;
@@ -334,8 +370,13 @@ button:focus {
     }
     &__text {
         width: 463px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     &__img {
         display: block;
@@ -436,6 +477,8 @@ button:focus {
             text-decoration: underline;
             &:hover {
                 color: $pink;
+                -webkit-transition: .2s linear;
+                -o-transition: .2s linear;
                 transition: .2s linear;
             }
         }
@@ -457,6 +500,8 @@ button:focus {
             &:hover {
                 &:hover {
                     fill: $dark;
+                    -webkit-transition: .2s linear;
+                    -o-transition: .2s linear;
                     transition: .2s linear;
                 }
             }
@@ -545,6 +590,11 @@ button:focus {
         &--intro {
             text-align: center;
         }
+        &--underline {
+            &::after {
+                display: none;
+            }
+        }
     }
     .text {
         &--intro {
@@ -564,7 +614,9 @@ button:focus {
     .intro {
         padding: 55px 0 130px 0;
         &__inner {
-            align-items: center;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
         }
         &__img {
             margin-top: 30px;
@@ -579,8 +631,13 @@ button:focus {
             width: 90%;
             margin: 100px auto 0 auto;
             padding: 70px 0 0 0;
-            flex-direction: column;
-            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
         }
         &__img {
             margin-top: 30px;
@@ -634,7 +691,9 @@ button:focus {
 @media (max-width: 768px) {
     .program {
         &__inner {
-            justify-content: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             &--item {
                 width: 60%;
                 margin-bottom: 40px;
@@ -722,21 +781,27 @@ button:focus {
             width: 220px;
             margin-top: 0;
             margin-bottom: 15px;
-            order: 1;
+            -webkit-box-ordinal-group: 2;
+                -ms-flex-order: 1;
+                    order: 1;
         }
     }
     .text {
         font-size: 18px;
         line-height: 23px;
         &--intro {
-            order: 4;
+            -webkit-box-ordinal-group: 5;
+                -ms-flex-order: 4;
+                    order: 4;
         }
     }
     .title {
         font-size: 32px;
         line-height: 40px;
         &--intro {
-            order: 2;
+            -webkit-box-ordinal-group: 3;
+                -ms-flex-order: 2;
+                    order: 2;
         }
         &--time {
             width: 175px;
@@ -753,16 +818,25 @@ button:focus {
        padding:0 0 60px 0;
         &__block {
             margin: 30px 0;
-            align-items: center;
-           flex-direction: column;
-           order: 3;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+           -webkit-box-orient: vertical;
+           -webkit-box-direction: normal;
+               -ms-flex-direction: column;
+                   flex-direction: column;
+           -webkit-box-ordinal-group: 4;
+               -ms-flex-order: 3;
+                   order: 3;
         }
         &__img {
             display: none;
             &--m {
                 display: block;
                 width: 55%;
-                order: 5;
+                -webkit-box-ordinal-group: 6;
+                    -ms-flex-order: 5;
+                        order: 5;
             }
         }     
     }
@@ -773,7 +847,9 @@ button:focus {
         font-size: 18px;
         &--intro {
             margin-top: 25px;
-            order: 4;
+            -webkit-box-ordinal-group: 5;
+                -ms-flex-order: 4;
+                    order: 4;
         }
         &--buy {
             width: 95%;
